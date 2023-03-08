@@ -1,4 +1,4 @@
-import './CSS/Header.css';
+import '../header/Header.css';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
-import logo from '../Recursos/logo.png';
+import logo from '../../imgs/logo.png';
 
 function Header() {
     return(
