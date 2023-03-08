@@ -6,7 +6,7 @@ import { IoLocationSharp, IoCall, IoMail } from "react-icons/io5";
 
 import './footer.css';
 
-import logo from '../../imgs/logo.png'
+import logo from '../../imgs/logo.png';
 
 
 function Footer(){
