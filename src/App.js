@@ -1,4 +1,7 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
+import Index from './components/pages';
+import Footer from "./components/footer/footer";
 import './App.css';
 import React from 'react';
 import Header from './Común/Header.js';
@@ -14,6 +17,8 @@ function App() {
       
       <Header></Header>
 
+      <Index/>
+      <Footer />
     </div>
   );
 }
