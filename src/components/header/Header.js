@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import logo from '../../imgs/logo.png';
+import Carrito from './carrito/Carrito';
 
 function Header() {
     return(
@@ -41,7 +42,7 @@ function Header() {
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>    
                         <Navbar.Collapse className="justify-content-end">
                             <Nav.Item><BiUser></BiUser> Log in</Nav.Item>
-                            <Nav.Item> <BsCart2></BsCart2> Carrito</Nav.Item>
+                            <Carrito></Carrito>
                         </Navbar.Collapse>
                     </Nav>
                 </Container>

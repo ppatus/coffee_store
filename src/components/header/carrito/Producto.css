@@ -1,0 +1,25 @@
+.productImage{
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+.productsContainer{
+    padding: 0;
+    color: white;
+}
+
+.productName{
+    padding: 0;
+    text-align: left;
+    padding-left:15px;
+    
+}
+
+.productName > p{
+    max-lines: 2;
+}
+
+.productRow{
+    width: 100%;
+    margin: 0;
+}

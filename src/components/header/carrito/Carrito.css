@@ -1,0 +1,6 @@
+.popoverBody{
+    width:365px;
+    max-width: 365px;
+    background-color: #212322;
+    --bs-popover-bg: #212322;
+}
