@@ -1,0 +1,13 @@
+.carousel-container{
+    width:100%;
+}
+
+.title{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.globalContainer{
+    margin-top:30px;
+    margin-bottom:30px;
+}

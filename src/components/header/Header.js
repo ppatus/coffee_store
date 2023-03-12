@@ -9,6 +9,7 @@ import { BsCart2 } from "react-icons/bs";
 import logo from '../../imgs/logo.png';
 import { Button } from 'react-bootstrap';
 import LogIn from './LogIn';
+import Carrito from './carrito/Carrito';
 
 function Header() {
     return(
@@ -43,8 +44,8 @@ function Header() {
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>  
                           
                         <Navbar.Collapse className="justify-content-end">
-                            <LogIn></LogIn>
-                            <Nav.Item> <BsCart2></BsCart2> Carrito</Nav.Item>
+                            <Nav.Item><BiUser></BiUser> Log in</Nav.Item>
+                            <Carrito></Carrito>
                         </Navbar.Collapse>
                     </Nav>
                 </Container>
