@@ -1,8 +1,35 @@
-.header {
+/* .header {
     padding: 0.5rem;
     margin: 1rem 0;
     border-radius: 12px;
     background-color: #6373d7;
     text-align: center;
     color: aliceblue;
+} */
+
+header{
+    color: #CDA075;
+}
+
+.links_row{
+    padding-top:20px;
+    padding-bottom:20px;
+    background-color: #212322;
+    color: #CDA075;
+}
+
+.nav-item{
+    color: #CDA075;
+}
+
+.nav-link{
+    color: #fff;
+}
+
+.nav-link:hover{
+    color: #CDA075;
+}
+
+.nav-link:active{
+    color: #CDA075;
 }

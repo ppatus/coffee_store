@@ -1,3 +1,4 @@
+import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 import placeholder1 from '../../../imgs/placeholder1.jpg';

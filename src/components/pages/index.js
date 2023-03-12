@@ -1,3 +1,4 @@
+import React from 'react';
 import CarouselOfertas from "../carousels/ofertas/CarouselOfertas";
 
 function Index(){
