@@ -16,10 +16,32 @@
 }
 
 .productName > p{
-    max-lines: 2;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-weight: bold;
 }
 
 .productRow{
     width: 100%;
     margin: 0;
+    height: 43px;
+}
+
+.priceRow{
+    width: 100%;
+    margin: 0;
+}
+
+.priceText{
+    font-size: 12px;
+    font-weight: none;
+    padding-left: 15.5px;
+}
+
+.cross:hover{
+    fill:#ff0000;
 }
