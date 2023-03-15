@@ -8,13 +8,14 @@ import { BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import logo from '../../imgs/logo.png';
 import Carrito from './carrito/Carrito';
+import { Link } from 'react-router-dom';
 
 function Header() {
     return(
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/">
                         <img
                         alt=""
                         src={logo}
@@ -29,16 +30,11 @@ function Header() {
 
                     <Nav className="container-fluid">
                         <NavDropdown href="#cafe" title="Café">
-                            <NavDropdown.Item href="#cafe/1.1">Café en grano</NavDropdown.Item>
-                            <NavDropdown.Item href="#cafe/1.2">Café molido</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
-                            </NavDropdown.Item>                                
+                            <NavDropdown.Item href="/productos/cafe-en-grano">Café en grano</NavDropdown.Item>
+                            <NavDropdown.Item href="/productos/cafe-molido">Café molido</NavDropdown.Item>                             
                         </NavDropdown>
                         
-                        <Nav.Link href="#Accesorios">Accesorios</Nav.Link>
+                        <Nav.Link href="/productos/accesorios">Accesorios</Nav.Link>
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>    
                         <Navbar.Collapse className="justify-content-end">
                             <Nav.Item><BiUser></BiUser> Log in</Nav.Item>

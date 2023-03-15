@@ -9,6 +9,8 @@ import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import Carrito_pagina from './components/pages/Carrito_pagina';
+import { Route, Routes } from 'react-router';
+import Productos from './components/pages/Productos'
 
 
 function App() {
@@ -16,8 +18,12 @@ function App() {
     <div className="App">
       
       <Header></Header>
-
-      <Index/>
+      <Routes>
+        <Route path="/" element={<Index/>}/>
+        <Route path="/productos/cafe-en-grano" element={<Productos category="grano"/>}/>
+        <Route path="/productos/cafe-molido" element={<Productos category="molido"/>}/>
+        <Route path="/productos/accesorios" element={<Productos category="accesorios"/>}/>
+      </Routes>
       <Footer />
     </div>
   );
