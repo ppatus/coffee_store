@@ -7,8 +7,8 @@ import React from 'react';
 import Header from './components/header/Header.js';
 import Button from 'react-bootstrap/Button';
 import { Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-import Carrito_pagina from './components/pages/Carrito_pagina';
+import Carrito_pagina from './components/pages/carrito/Carrito_pagina';
+import CreateAccount from './components/pages/CreateAccount';
 
 import Elemento_Producto from './components/pages/store_item';
 import {Card} from 'react-bootstrap';
@@ -20,7 +20,13 @@ function App() {
       
       <Header></Header>
       <br></br>
-      <Container >
+      {/* <Index/> */}
+
+      {/* <Carrito_pagina></Carrito_pagina> */}
+
+      <CreateAccount></CreateAccount>
+
+      {/* <Container >
         <Row>
           <Col>
             <Elemento_Producto></Elemento_Producto>
@@ -29,11 +35,8 @@ function App() {
             <Elemento_Producto></Elemento_Producto>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 
-      
-
-      {/* <Index/> */}
       <Footer />
     </div>
   );

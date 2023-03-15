@@ -1,0 +1,18 @@
+.popoverBodyLogIn{
+    width:365px;
+    max-width: 365px;
+    background-color: #e7ccb3;
+}
+
+.popover-header{
+    background-color: #CDA075;
+}
+
+.logInButton{
+    --bs-btn-bg:#CDA075;
+    --bs-btn-border-color: #CDA075;
+    --bs-btn-hover-bg: #927357;
+    --bs-btn-hover-border-color: #927357; 
+    --bs-btn-active-bg: #705741 ;
+    --bs-btn-active-border-color: #705741;
+}

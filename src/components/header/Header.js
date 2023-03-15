@@ -5,11 +5,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BiUser } from "react-icons/bi";
-import { BsCart2 } from "react-icons/bs";
 import logo from '../../imgs/logo.png';
-import { Button } from 'react-bootstrap';
-import LogIn from './LogIn';
 import Carrito from './carrito/Carrito';
+import LogIn from './login/LogIn';
 
 function Header() {
     return(
@@ -44,7 +42,8 @@ function Header() {
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>  
                           
                         <Navbar.Collapse className="justify-content-end">
-                            <Nav.Item><BiUser></BiUser> Log in</Nav.Item>
+                            
+                            <LogIn></LogIn>
                             <Carrito></Carrito>
                         </Navbar.Collapse>
                     </Nav>
