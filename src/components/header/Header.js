@@ -5,15 +5,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BiUser } from "react-icons/bi";
-import { BsCart2 } from "react-icons/bs";
 import logo from '../../imgs/logo.png';
 import Carrito from './carrito/Carrito';
 import { Link } from 'react-router-dom';
+import LogIn from './login/LogIn';
 
 function Header() {
     return(
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar className="links_row" expand="lg">
                 <Container>
                     <Navbar.Brand href="/">
                         <img
@@ -26,7 +26,7 @@ function Header() {
                         Telecoffee
                     </Navbar.Brand>
 
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> no sé si esto hace falta lol*/}
 
                     <Nav className="container-fluid">
                         <NavDropdown href="#cafe" title="Café">
@@ -37,7 +37,8 @@ function Header() {
                         <Nav.Link href="/productos/accesorios">Accesorios</Nav.Link>
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>    
                         <Navbar.Collapse className="justify-content-end">
-                            <Nav.Item><BiUser></BiUser> Log in</Nav.Item>
+                            
+                            <LogIn></LogIn>
                             <Carrito></Carrito>
                         </Navbar.Collapse>
                     </Nav>
