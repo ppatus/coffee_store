@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Button} from 'react-bootstrap';
 import { BsTrash } from "react-icons/bs";
 
-function store_item(props){
+function Store_item(props){
 
     const quantity = 2;
 
@@ -13,26 +13,19 @@ function store_item(props){
 
     return(
 
-        <Card style={{ width: '15rem'}}>
+        <Card style={{ width: '23%', marginLeft:"10px", marginRight:"10px", marginBottom:"20px" }}>
           <Card.Img
               variant="top"
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
-              //src={ imagen }
+              //src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+              src={ imagen }
               height="200rem"
-              style={{objectFit: 'cover'}}
+              style={{objectFit: 'contain'}}
           />
           <Card.Body classname = "d-flex flex-column">
               <Card.Title classname = "d-flex justify-content-space-between align-items-baseline">
-                  {/* <p className='fs-2'>{ nombre }</p>
-                  <p className='ms-2 text-muted'>{ precio } € </p> */}
-                  <p className='fs-2'>nombre</p>
-                  <p className='ms-2 text-muted'>precio</p>
+                  <p style={{fontSize:"20px"}}>{nombre}</p>
+                  <p className='ms-2 text-muted'>{precio} €</p>
               </Card.Title >
-              <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </Card.Text>
-              <Card.Text>{ descripcion }</Card.Text>
               <div className="mt-auto">
                 {quantity === 0 ? (
                     <Button className='w-100'>+ Añadir al carrito</Button>
@@ -66,4 +59,4 @@ function store_item(props){
     );
 };
 
-export default store_item;
+export default Store_item;

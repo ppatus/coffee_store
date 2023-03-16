@@ -6,7 +6,7 @@ import React from 'react';
 import Header from './components/header/Header.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Route, Routes } from 'react-router';
-import Productos from './components/pages/Productos'
+import Productos from './components/pages/Productos/Productos'
 
 
 function App() {
