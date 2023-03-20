@@ -34,10 +34,9 @@ function Header() {
                             <NavDropdown.Item href="/productos/cafe-molido">Café molido</NavDropdown.Item>                             
                         </NavDropdown>
                         
-                        <Nav.Link href="/productos/accesorios">Accesorios</Nav.Link>
+                        <Link to="/productos/accesorios">Accesorios</Link>
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>    
                         <Navbar.Collapse className="justify-content-end">
-                            
                             <LogIn></LogIn>
                             <Carrito></Carrito>
                         </Navbar.Collapse>

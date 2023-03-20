@@ -18,51 +18,42 @@ function LogIn() {
         <OverlayTrigger
           trigger="click"
           key="bottom"
+          rootClose
           placement="bottom"
           overlay={
             <Popover id={`popover-positioned-bottom`} className="popoverBodyLogIn">
-                <Popover.Header as="h2">Log in</Popover.Header>
+                <Popover.Header as="h2">Iniciar sesión</Popover.Header>
 
                 <Popover.Body>
                 
                 <form>
                     <div className="mb-3">
-                    <label>Email address</label>
+                    <label>Correo electrónico</label>
                     <input
                         type="email"
                         className="form-control"
-                        placeholder="Enter email"
+                        placeholder="Introducir correo electrónico"
                     />
                     </div>
                     <div className="mb-3">
-                    <label>Password</label>
+                    <label>Contraseña</label>
                     <input
                         type="password"
                         className="form-control"
-                        placeholder="Enter password"
+                        placeholder="Introducir contraseña"
                     />
                     </div>
                     <div className="mb-3">
-                    <div className="custom-control custom-checkbox">
-                        <input
-                        type="checkbox"
-                        className="custom-control-input"
-                        id="customCheck1"
-                        />
-                        <label className="custom-control-label" htmlFor="customCheck1">
-                        Remember me
-                        </label>
-                    </div>
                     </div>
                     <div className="d-grid">
                     <button type="submit" className="btn btn-primary logInButton">
-                        Submit
+                        Iniciar sesión
                     </button>
                     </div>
                     <div>
                         <br></br>
                         <p>¿Todavía no te has registrado?</p>
-                        <Button className="btn btn-primary createAccountButton" variant="secondary" size="sm">
+                        <Button className="btn btn-primary createAccountButton" variant="secondary" size="sm"  href="/crear-cuenta">
                             Crear cuenta
                         </Button>
                     </div>

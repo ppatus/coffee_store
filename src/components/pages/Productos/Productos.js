@@ -40,9 +40,6 @@ function Productos(props){
         });
     },[props]);
 
-
-
-
     //Función que se cuando se cambia de página
     useEffect(() => {
         const endOffset = itemOffset + itemsPerPage;
@@ -51,14 +48,11 @@ function Productos(props){
         window.scrollTo(0, 0)
     }, [itemOffset, itemsPerPage, productos]);
 
-
-
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % productos.length;
         console.log("New offset = "+newOffset);
         setItemOffset(newOffset);
     };
-
     
     function TituloProductos({category}){
         let title = "";
@@ -98,8 +92,6 @@ function Productos(props){
             </>
           );
     }
-
-
 
     return(
         <>

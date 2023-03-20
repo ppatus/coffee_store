@@ -20,6 +20,7 @@ function Carrito(){
         <OverlayTrigger
           trigger="click"
           key="bottom"
+          rootClose
           placement="bottom"
           overlay={
             <Popover id={`popover-positioned-bottom`} className="popoverBody">
