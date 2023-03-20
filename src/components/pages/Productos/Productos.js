@@ -16,6 +16,7 @@ function Productos(props){
 
     //Función que se ejecuta al cargar la página
     useEffect(() => {
+        console.log("Se han solicitado los productos");
         let url = "https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/";
 
         switch(props.category){
@@ -38,7 +39,7 @@ function Productos(props){
         .then((response) => {
             setProductos(response.data);
         });
-    },[props]);
+    },[]);
 
 
 
@@ -55,7 +56,6 @@ function Productos(props){
 
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % productos.length;
-        console.log("New offset = "+newOffset);
         setItemOffset(newOffset);
     };
 

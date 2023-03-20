@@ -18,6 +18,7 @@ function LogIn() {
         <OverlayTrigger
           trigger="click"
           key="bottom"
+          rootClose
           placement="bottom"
           overlay={
             <Popover id={`popover-positioned-bottom`} className="popoverBodyLogIn">

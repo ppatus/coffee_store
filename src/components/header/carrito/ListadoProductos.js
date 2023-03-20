@@ -2,20 +2,23 @@ import React from "react";
 import Producto from "./Producto";
 
 function ListadoProductos(props){
-    let products = props.products;
+    let carrito = props.products[0];
+    let setCarrito = props.products[1];
 
-    const generateProductList = (products) => {
+    const generateProductList = (carrito) => {
         let output = [];
-        products.forEach(element => {
-            output.push(<Producto product={element}></Producto>);
+        let key_counter = 1;
+        carrito.forEach(element => {
+            output.push(<Producto product={element} key={key_counter} carrito={carrito} setCarrito={setCarrito}></Producto>);
+            key_counter++;
         });
         return output;
     }
 
     return(
         <>
-            {products.length == 0 && <div>Tu cesta está vacía</div>}
-            {products.length > 0 && generateProductList(products)}
+            {carrito.length == 0 && <div>Tu cesta está vacía</div>}
+            {carrito.length > 0 && generateProductList(carrito)}
         </> 
     );
 }
