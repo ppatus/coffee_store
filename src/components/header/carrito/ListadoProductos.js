@@ -17,7 +17,7 @@ function ListadoProductos(props){
 
     return(
         <>
-            {carrito.length == 0 && <div>Tu cesta está vacía</div>}
+            {carrito.length == 0 && <div style={{color:"white", textAlign:"center", paddingTop:"5px", paddingBottom:"5px"}}>Tu cesta está vacía</div>}
             {carrito.length > 0 && generateProductList(carrito)}
         </> 
     );

@@ -26,7 +26,7 @@ function Carrito(){
             <Popover id={`popover-positioned-bottom`} className="popoverBody">
               <Popover.Body>
                 <ListadoProductos products={[productos, setProductos]}></ListadoProductos>
-                <PrecioCarrito></PrecioCarrito>
+                <PrecioCarrito products={productos}></PrecioCarrito>
                 <Container className="verCarrito"><Col><AiOutlineShoppingCart></AiOutlineShoppingCart>     Ver carrito</Col></Container>
               </Popover.Body>
             </Popover>

@@ -32,15 +32,15 @@ function Footer(){
                     <h5>Contáctanos</h5>
                         <p><IoLocationSharp className="icon"/>UPNA</p>
                         <p><IoCall className="icon"/>948 12 34 56</p>
-                        <IoMail className="icon"/><a href="mailto:coffeestore@upna.es">coffeestore@upna.es</a>
+                        <IoMail className="icon"/><a className="links" href="mailto:coffeestore@upna.es">coffeestore@upna.es</a>
                     </Container>
                 </Col>
                 <Col>
                     <Container className="contact_container">
                     <h5>Descúbrenos</h5>
-                        <Row><a>Cafés</a></Row>
-                        <Row><a>Accesorios</a></Row>
-                        <Row><a>Aviso legal</a></Row>
+                        <Row><a className="links">Cafés</a></Row>
+                        <Row><a className="links">Accesorios</a></Row>
+                        <Row><a className="links">Aviso legal</a></Row>
                     </Container>
                 </Col>
             </Row>

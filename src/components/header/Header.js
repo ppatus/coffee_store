@@ -3,18 +3,21 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { NavLink } from 'react-router-dom';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BiUser } from "react-icons/bi";
 import logo from '../../imgs/logo.png';
 import Carrito from './carrito/Carrito';
 import { Link } from 'react-router-dom';
 import LogIn from './login/LogIn';
+import { BsFillClipboard2PulseFill } from 'react-icons/bs';
 
 function Header() {
     return(
         <div>
             <Navbar className="links_row" expand="lg">
                 <Container>
+                <NavLink to="/">
                     <Navbar.Brand href="/">
                         <img
                         alt=""
@@ -25,16 +28,17 @@ function Header() {
                         />{' '}
                         Telecoffee
                     </Navbar.Brand>
+                </NavLink>
 
                     {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> no sé si esto hace falta lol*/}
 
                     <Nav className="container-fluid">
                         <NavDropdown href="#cafe" title="Café">
-                            <NavDropdown.Item href="/productos/cafe-en-grano">Café en grano</NavDropdown.Item>
-                            <NavDropdown.Item href="/productos/cafe-molido">Café molido</NavDropdown.Item>                             
+                            <NavLink to="/productos/cafe-en-grano"><NavDropdown.Item href="/productos/cafe-en-grano">Café en grano</NavDropdown.Item></NavLink>
+                            <NavLink to="/productos/cafe-molido"><NavDropdown.Item href="/productos/cafe-molido">Café molido</NavDropdown.Item></NavLink>                             
                         </NavDropdown>
                         
-                        <Nav.Link href="/productos/accesorios">Accesorios</Nav.Link>
+                        <NavLink to="/productos/accesorios"><Nav.Link href="/productos/accesorios">Accesorios</Nav.Link></NavLink>
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>    
                         <Navbar.Collapse className="justify-content-end">
                             

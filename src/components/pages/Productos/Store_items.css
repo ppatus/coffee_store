@@ -26,3 +26,16 @@
     background-color: #CDA075;
     color: white; 
 }
+
+.w-100{
+    --bs-btn-bg: #CDA075;
+    --bs-btn-border-color: #CDA075;
+    --bs-btn-hover-bg: #927357;
+    --bs-btn-hover-border-color: #927357;
+    --bs-btn-active-bg: #705741;
+    --bs-btn-active-border-color: #705741;
+}
+
+.page-num{
+    color: #CDA075;
+}

@@ -29,11 +29,8 @@ function Producto(props){
                 <Col sm={2}>
                     <img src={product.img} height="43px" width="43px" className="productImage"></img>
                 </Col>
-                <Col className="productName" sm={7}>
+                <Col className="productName" sm={9} style={{textAlign: "justify", paddingRight: "20px"}}>
                     <p>{product.name}</p>
-                </Col>
-                <Col sm={2}>
-                    <p>- {product.qty} +</p>
                 </Col>
                 <Col sm={1}>
                     <GoX className="cross" onClick={eliminarProducto}/>
@@ -43,7 +40,7 @@ function Producto(props){
                 <Col sm={2}>
                 </Col>
                 <Col className="priceText" sm={7}>
-                    <p>{product.qty} x {product.price}€</p>
+                    <p>{product.qty} x {product.price.toFixed(2).replace(".",",")}€</p>
                 </Col>
                 <Col sm={2}>
                 </Col>

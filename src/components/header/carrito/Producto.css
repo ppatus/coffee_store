@@ -42,6 +42,10 @@
     padding-left: 15.5px;
 }
 
-.cross:hover{
+.cross:hover, .minus:hover{
     fill:#ff0000;
+}
+
+.plus:hover{
+    fill:#009532;
 }

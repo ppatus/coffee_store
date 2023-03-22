@@ -16,20 +16,16 @@ function Productos(props){
 
     //Función que se ejecuta al cargar la página
     useEffect(() => {
-        console.log("Se han solicitado los productos");
         let url = "https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/";
 
         switch(props.category){
             case "grano":
-                console.log("Productos en grano");
                 url += "en_grano.json";
                 break;
             case "molido":
-                console.log("Productos molidos");
                 url += "molido.json";
                 break;
             case "accesorios":
-                console.log("Productos accesorios");
                 url += "accesorios.json";
                 break;
         }
@@ -39,7 +35,7 @@ function Productos(props){
         .then((response) => {
             setProductos(response.data);
         });
-    },[]);
+    },[props]);
 
 
 
@@ -91,7 +87,7 @@ function Productos(props){
                 <Row>
                     {currentItems &&
                         currentItems.map((item) => (
-                            <Store_item nombre={item.name} precio={item.price} imagen={item.img}></Store_item>
+                            <Store_item nombre={item.name} key={item.name} precio={item.price} imagen={item.img}></Store_item>
                     ))}
                 </Row>
             </Container>

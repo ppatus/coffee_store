@@ -33,3 +33,31 @@ header{
 .nav-link:active{
     color: #CDA075;
 }
+
+.nav-link:focus{
+    color: #CDA075;
+}
+
+.navbar-nav .show > .nav-link, .navbar-nav .nav-link.active{
+    color: #b0855d;
+}
+
+a{
+    text-decoration: none;
+}
+
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #b0855d;
+}
+
+.navbar-brand{
+    color:white;
+}
+
+.navbar-brand:hover{
+    color:white;
+}
+
+.navbar-brand:focus{
+    color:white;
+}

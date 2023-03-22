@@ -39,11 +39,11 @@ footer{
     padding-right:28px;
 }
 
-a{
+.links{
     color: #CDA075;
 }
 
-a:hover{
+.links:hover{
     color:#62452a;
 }
 

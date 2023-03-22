@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {Card, Button} from 'react-bootstrap';
+import {Card, Button, Container, Col, Row} from 'react-bootstrap';
 import { BsTrash } from "react-icons/bs";
 import CarritoContext from '../../../contexts/Carrito';
 
@@ -43,31 +43,42 @@ function Store_item(props){
     }
 
     const eliminarProducto = () => {
-        const index = carrito.indexOf({"name":nombre,"img":imagen,"price":precio,"qty":quantity});
+        const index = carrito.map((producto, index) => {
+            if(producto.name == nombre) {
+                return index;
+            }
+            return -1;
+        }).filter(index => index!==-1)[0];
         carrito.splice(index,1);
         setQuantity(0);
     }
 
     const añadirUno = () => {
-        const index = carrito.indexOf({"name":nombre,"img":imagen,"price":precio,"qty":quantity});
+        const index = carrito.map((producto, index) => {
+            if(producto.name == nombre) {
+                return index;
+            }
+            return -1;
+        }).filter(index => index!==-1)[0];
         setQuantity(quantity+1);
-        carrito.splice(index,1,{"name":nombre,"img":imagen,"price":precio,"qty":quantity+1});
+        carrito[index]["qty"]++;
     }
 
     const quitarUno = () => {
-        const index = carrito.indexOf({"name":nombre,"img":imagen,"price":precio,"qty":quantity});
+        const index = carrito.map((producto, index) => {
+            if(producto.name == nombre) {
+                return index;
+            }
+            return -1;
+        }).filter(index => index!==-1)[0];
         setQuantity(quantity-1);
-        if(quantity-1==0){
-            //Borramos el producto
-            carrito.splice(index,1);
-        } else {
-            carrito.splice(index,1,{"name":nombre,"img":imagen,"price":precio,"qty":quantity-1});
-        }
+        carrito[index]["qty"]--;
+        if(carrito[index]["qty"]===0) eliminarProducto();
     }
 
     return(
-
-        <Card style={{ width: '23%', marginLeft:"10px", marginRight:"10px", marginBottom:"20px" }}>
+        <Col md={3} sm={4} xs={6} style={{marginBottom:"20px"}}>
+        <Card style={{ height:"100%" }}>
           <Card.Img
               variant="top"
               //src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
@@ -77,8 +88,10 @@ function Store_item(props){
           />
           <Card.Body className = "d-flex flex-column">
               <Card.Title className = "d-flex justify-content-space-between align-items-baseline">
-                  <p style={{fontSize:"20px"}}>{nombre}</p>
-                  <p className='ms-2 text-muted'>{precio} €</p>
+                <Container>
+                    <Row style={{fontSize:"18px"}}>{nombre}</Row>
+                    <Row style={{fontSize:"17px", color: "gray", textAlign: "center", marginTop:"5px", marginBottom:"5px"}}><p>{precio.toFixed(2).replace(".",",")} €</p></Row>
+                </Container>
               </Card.Title >
               <div className="mt-auto">
                 {quantity === 0 ? (
@@ -110,6 +123,7 @@ function Store_item(props){
           </Card.Body>
 
       </Card>
+      </Col>
     );
 };
 
