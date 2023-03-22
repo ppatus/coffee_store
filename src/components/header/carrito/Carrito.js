@@ -5,11 +5,8 @@ import { BsCart2 } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import ListadoProductos from "./ListadoProductos";
 import "./Carrito.css";
-
+import { Link } from "react-router-dom";
 import CarritoContext from "../../../contexts/Carrito";
-
-import Coffee1 from "../../../imgs/products/coffee1.jpg";
-import Coffee2 from "../../../imgs/products/coffee2.jpg";
 import PrecioCarrito from "./PrecioCarrito";
 
 function Carrito(){
@@ -27,7 +24,7 @@ function Carrito(){
               <Popover.Body>
                 <ListadoProductos products={[productos, setProductos]}></ListadoProductos>
                 <PrecioCarrito products={productos}></PrecioCarrito>
-                <Container className="verCarrito"><Col><AiOutlineShoppingCart></AiOutlineShoppingCart>     Ver carrito</Col></Container>
+                <Link to='/carrito'><Container className="verCarrito"><Col><AiOutlineShoppingCart></AiOutlineShoppingCart>     Ver carrito</Col></Container></Link>
               </Popover.Body>
             </Popover>
           }

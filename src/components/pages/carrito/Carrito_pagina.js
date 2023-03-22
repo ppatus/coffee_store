@@ -2,8 +2,10 @@ import React from 'react';
 import { Button, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
-import { Container, Tooltip } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Item_carrito from './item.js';
+import './CarritoPagina.css';
+import { Link } from "react-router-dom";
 
 function Carrito_pagina(){
     return(
@@ -49,12 +51,11 @@ function Carrito_pagina(){
                         </CardHeader>
                             <Card.Body>
                                 <ListGroup flush>
-                                    <ListGroupItem
-                                        className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    <ListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                         Productos
                                         <span>$53.98</span>
                                     </ListGroupItem>
-                                    <ListGroupItem className="d-flex justify-content-between align-items-center px-0 gastosEnvio">
+                                    <ListGroupItem className="d-flex justify-content-between align-items-center px-0 border-0 gastosEnvio">
                                         Gastos de envío
                                         <span>Gratis</span>
                                     </ListGroupItem>
@@ -72,7 +73,7 @@ function Carrito_pagina(){
                                     </ListGroupItem>
                                 </ListGroup>
 
-                                <Button block size="lg">Realizar pedido</Button>
+                                <Link to='/finalizar-compra'><Button className='buttons' block size="lg">Realizar pedido</Button></Link>
                             </Card.Body>
                         </Card>
                     </Col>

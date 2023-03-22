@@ -21,6 +21,7 @@ p{
 .detailsButton{
     text-align: right;
     margin-right: 2rem;
+    margin-left: 1rem;
     --bs-btn-bg:#CDA075;
     --bs-btn-border-color: #CDA075;
     --bs-btn-hover-bg: #927357;
