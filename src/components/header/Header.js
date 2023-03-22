@@ -1,5 +1,5 @@
 import '../header/Header.css';
-import React from 'react';
+import React, { useContext } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,8 +11,13 @@ import Carrito from './carrito/Carrito';
 import { Link } from 'react-router-dom';
 import LogIn from './login/LogIn';
 import { BsFillClipboard2PulseFill } from 'react-icons/bs';
+import LogInContext from '../../contexts/LogInContext';
+import MyAccount from './login/MyAccount';
 
 function Header() {
+
+    const [login, loginData, updateLogin] = useContext(LogInContext);
+
     return(
         <div>
             <Navbar className="links_row" expand="lg">
@@ -41,8 +46,8 @@ function Header() {
                         <NavLink to="/productos/accesorios"><Nav.Link href="/productos/accesorios">Accesorios</Nav.Link></NavLink>
                         <Nav.Link href="#Accesorios">¿Quienes somos?</Nav.Link>    
                         <Navbar.Collapse className="justify-content-end">
-                            
-                            <LogIn></LogIn>
+                            {login && <MyAccount></MyAccount>}
+                            {!login && <LogIn></LogIn>}
                             <Carrito></Carrito>
                         </Navbar.Collapse>
                     </Nav>

@@ -32,7 +32,7 @@ function Carrito(){
             </Popover>
           }
         >
-          <Nav.Item> <BsCart2></BsCart2></Nav.Item>
+          <Nav.Item> <h2><BsCart2 style={{ marginRight: '1rem'}}></BsCart2></h2></Nav.Item>
         </OverlayTrigger>
         
     );
