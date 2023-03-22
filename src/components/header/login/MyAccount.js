@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { OverlayTrigger, Popover, Button, Form, Col, Container, Row } from "react-bootstrap";
 import Nav from 'react-bootstrap/Nav';
 import { BiUser } from "react-icons/bi";
@@ -22,6 +22,9 @@ function MyAccount(){
         updateLogin(false,{});
     }
 
+
+    
+
     return(
         <OverlayTrigger
           trigger="click"
@@ -32,7 +35,7 @@ function MyAccount(){
             <Popover id={`popover-positioned-bottom`} className="popoverBodyLogIn">
               <Popover.Body>
                 {/* TODO: METER EL NOMBRE DEL USUARIO */}
-                <h5>¡Hola, nombreusuario!</h5>
+                <h5>¡Hola, {loginData[1].name}!</h5>
                 <Row className="verPedidos mt-2">
                     <Link to="/pedidos"><h6 href="/pedidos" className="verPedidos"><BsBoxSeam style={{ marginRight: '1rem'}}></BsBoxSeam>Ver mis pedidos</h6></Link>
                 </Row>
