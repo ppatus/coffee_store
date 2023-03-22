@@ -3,6 +3,7 @@ import './ListadoPedidos.css';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
+import { Link } from "react-router-dom";
 
 function ItemPedido(){
     return(
@@ -14,7 +15,7 @@ function ItemPedido(){
                         <p>Fecha</p>
                         <p>Precio total</p>
                         <p>Número artículos</p>
-                        <span className="float-end mb-2 mt-2"><Button href="/detalles-pedido" className="btn btn-primary detailsButton">Ver detalles del pedido</Button></span>
+                        <span className="float-end mb-2 mt-2"><Link to="/detalles-pedido"><Button href="/detalles-pedido" className="btn btn-primary detailsButton">Ver detalles del pedido</Button></Link></span>
                     </Card.Text>
                 </Card.Body>
             </Card>

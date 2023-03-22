@@ -90,7 +90,7 @@ function Store_item(props){
               <Card.Title className = "d-flex justify-content-space-between align-items-baseline">
                 <Container>
                     <Row style={{fontSize:"18px"}}>{nombre}</Row>
-                    <Row style={{fontSize:"17px", color: "gray", textAlign: "center", marginTop:"5px", marginBottom:"5px"}}><p>{precio.toFixed(2).replace(".",",")} €</p></Row>
+                    <Row style={{fontSize:"17px", color: "gray", textAlign: "center", marginTop:"5px", marginBottom:"5px"}}><p style={{textAlign: "center", marginLeft: "0px"}}>{precio.toFixed(2).replace(".",",")} €</p></Row>
                 </Container>
               </Card.Title >
               <div className="mt-auto">

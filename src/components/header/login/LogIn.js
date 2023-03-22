@@ -6,6 +6,7 @@ import './LogIn.css'
 import { useState } from 'react';
 import axios from "axios";
 import LogInContext from "../../../contexts/LogInContext";
+import { Link } from "react-router-dom";
 
 const LogIn = (props) => {
 
@@ -71,9 +72,9 @@ const LogIn = (props) => {
                             <div>
                                 <br></br>
                                 <p>¿Todavía no te has registrado?</p>
-                                <Button className="btn btn-primary createAccountButton" variant="secondary" size="sm"  href="/crear-cuenta">
+                                <Link to="/crear-cuenta"><Button className="btn btn-primary createAccountButton" variant="secondary" size="sm"  href="/crear-cuenta">
                                     Crear cuenta
-                                </Button>
+                                </Button></Link>
                             </div>
                         </Row>
                     </Container>

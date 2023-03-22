@@ -37,7 +37,7 @@ function Header() {
 
                     {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> no sé si esto hace falta lol*/}
 
-                    <Nav className="container-fluid">
+                    <Nav className="container-fluid" style={{alignItems: "center"}}>
                         <NavDropdown href="#cafe" title="Café">
                             <NavLink to="/productos/cafe-en-grano"><NavDropdown.Item href="/productos/cafe-en-grano">Café en grano</NavDropdown.Item></NavLink>
                             <NavLink to="/productos/cafe-molido"><NavDropdown.Item href="/productos/cafe-molido">Café molido</NavDropdown.Item></NavLink>                             
