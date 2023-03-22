@@ -13,9 +13,7 @@ import LogInContext from './contexts/LogInContext';
 import CarritoContext from './contexts/Carrito';
 import ListadoPedidos from './components/pages/ListadoPedidos/ListadoPedidos';
 import DetallesPedido from './components/pages/ListadoPedidos/DetallesPedido';
-
-import Coffee1 from "./imgs/products/coffee1.jpg";
-import Coffee2 from "./imgs/products/coffee2.jpg";
+import FormularioCompra from './components/pages/carrito/FormularioCompra';
 
 function App() {
 
@@ -43,6 +41,7 @@ function App() {
             <Route path="/carrito" element={<Carrito></Carrito>}/>
             <Route path="/pedidos" element={<ListadoPedidos></ListadoPedidos>}/>
             <Route path='/detalles-pedido' element={<DetallesPedido></DetallesPedido>}></Route>
+            <Route path='/finalizar-compra' element={<FormularioCompra></FormularioCompra>}></Route>
           </Routes>
           <Footer />
         </LogInContext.Provider>
