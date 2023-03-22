@@ -1,0 +1,18 @@
+.verPedidos:hover{
+    background-color: #d6b290;
+    vertical-align: middle;
+}
+
+a{
+    color: #705741;
+    text-decoration:none;
+}
+
+.botonLogout{
+    --bs-btn-bg:#927357;
+    --bs-btn-border-color: #927357;
+    --bs-btn-hover-bg: #705741;
+    --bs-btn-hover-border-color: #705741; 
+    --bs-btn-active-bg: #604b38 ;
+    --bs-btn-active-border-color: #604b38;
+}

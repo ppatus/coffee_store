@@ -37,11 +37,7 @@ function Carrito_pagina(){
                                     <Col><Card.Img  className="me-2" height="50rem"
                                     src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
                                     alt="Mastercard" /></Col>
-                                    
-                                    
                                 </Row>
-                                
-                                
                             </Card.Body>
                         </Card>
                     </Col>
