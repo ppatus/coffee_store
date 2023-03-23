@@ -2,15 +2,17 @@ import React from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { Tooltip, Container } from 'react-bootstrap';
 import './CarritoPagina.css';
+import { BsTrash } from "react-icons/bs";
 
-function Item_Carrito(){
+function Item_Carrito(props){
+    let producto = props.producto;
     return(
         <Container fluid>
             <Row className='d-inline-flex'>
                 <Col lg="3" className="mb-4 mb-lg-0">
                     <div>
                     <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+                        src={producto.img}
                         className="w-100" />
                     <a href="#!">
                         <div className="mask" style={{ backgroundColor: "rgba(251, 251, 251, 0.2)" , }}>
@@ -19,31 +21,33 @@ function Item_Carrito(){
                     </div>
                 </Col>
 
-                <Col lg="5" className=" mb-4 mb-lg-0 align-self-center">
-                    <p>
-                    <strong>Blue denim shirt</strong>
-                    </p>
-                    <p>Color: blue</p>
-                    <p>Size: M</p>
+                <Col lg="9" className=" mb-4 mb-lg-0 align-self-center">
+                    <Row>
+                        <Col>
+                            <p>
+                            <strong>{producto.name}</strong>
+                            </p>
+                        </Col>
+                        <Col>
+                            <h4 className="text-start text-md-center">
+                            <strong>{producto.price.toFixed(2).replace(".",",")} €</strong>
+                            </h4>
+                        </Col>
+                        
+                    </Row>
+                    
+                    <Row style={{marginLeft:"5px"}}>
+                        <div className="d-flex mb-4" >
+                        <Button className="px-3 me-2 buttons">-</Button>
 
-                    <Tooltip wrapperProps={{ size: "sm" }} wrapperClass="me-1 mb-2"
-                    title="Remove item">
-                    <p>Icono basura</p>
-                    </Tooltip>
-                </Col>
-                <Col lg="4" className="mb-4 mb-lg-0">
-                    <div className="d-flex mb-4" >
-                    <Button className="px-3 me-2 buttons">-</Button>
+                        <p>{producto.qty}</p>
 
-                    {/* TODO: poner que pille el total de productos */}
-                    <p>2</p>
-
-                    <Button className="px-3 ms-2 buttons">+</Button>
-                    </div>
-
-                    <p className="text-start text-md-center">
-                    <strong>$17.99</strong>
-                    </p>
+                        <Button className="px-3 ms-2 buttons">+</Button>
+                        <Button style={{marginLeft:"10px"}} variant='danger'>
+                            <BsTrash></BsTrash>
+                        </Button>
+                        </div>
+                    </Row>
                 </Col>
             </Row>
         </Container>

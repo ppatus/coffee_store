@@ -4,6 +4,7 @@ import axios from "axios";
 import LogInContext from '../../../contexts/LogInContext';
 import './CarritoPagina.css';
 import ModalFinalizarCompra from './ModalFinalizarCompra';
+import CarritoContext from '../../../contexts/Carrito';
 
 
 function FormularioCompra(){
@@ -13,26 +14,50 @@ function FormularioCompra(){
     const [login, loginData, updateLogin] = useContext(LogInContext);
     const [showModalOK, setShowModalOK] = useState(false);
 
+    const [productos, setProductos] = useContext(CarritoContext);
+
     const handleFinalizarCompra = () => {
         // TODO: SUBIR DATOS A BBDD
         setShowModalOK(true);
+        setProductos([]);
+    }
+    const calcularPrecioTotal = () => {
+        let price = 0;
+        productos.forEach(producto => {
+            price+=producto.price*producto.qty;
+        });
+        return price.toFixed(2).replace(".",",")+"€";
+    }
+
+    const calcularTotalProductos = () => {
+        let total = 0;
+        productos.forEach(producto => {
+            total+=producto.qty;
+        });
+        return total;
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
-        // const authData = {
-        //     email: email,
-        //     password: password,
-        //     returnSecureToken: true
-        // }
-        // axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC1V12BYDrMT04hpCPZXIrIk-BrwylEYiA', authData)
-        // .then((response)=>{
-        //     // TODO: CAMBIAR EMAIL POR EL NOMBRE DEL USUARIO 
-        //     updateLogin(true, response.data);
-        //     alert('Hola, '+{email}+'! Tu cuenta se ha creado correctamente :)');
-        // }).catch((error) => {
-        //     alert('¡Ups! Parece que ha habido un error... ¡Vuelve a intentarlo!');
-        // })
+        
+        const tiempoTranscurrido = Date.now();
+        const hoy = new Date(tiempoTranscurrido);
+    
+            const clientData = {
+                compra: productos,
+                precio: calcularPrecioTotal(),
+                fecha: hoy.toLocaleDateString(),
+                numItems: calcularTotalProductos(),
+                user: loginData[0]
+            };
+    
+            console.log(clientData);
+            
+            
+            axios.post("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/pedidos.json",clientData)
+            .then((response) => {
+                handleFinalizarCompra();
+            });
     }
 
     return(
