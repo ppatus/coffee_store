@@ -1,4 +1,4 @@
-import { React, useContext, useEffect } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import { Button, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
@@ -10,17 +10,32 @@ import CarritoContext from '../../../contexts/Carrito';
 
 function Carrito_pagina(){
     const [productos, setProductos] = useContext(CarritoContext);
+    const [finishPedidoAvailable, setfinishPedidoAvailable] = useState(true);
 
-    const renderizarProductos = () => {
+    useEffect( () => {
+        if(productos.length === 0 ? setfinishPedidoAvailable(false) : setfinishPedidoAvailable(true)){
+
+        }
+    }, [productos]);
+
+    const renderizarProductos = (productos) => {
         let output = [];
         productos.forEach(element => {
             output.push(
             <>
-                <Item_carrito producto={element}></Item_carrito>
+                <Item_carrito producto={element} carrito={productos} setCarrito={setProductos}></Item_carrito>
                 <hr className="my-4" />
             </> 
             )
-        });
+        })
+        
+        if(productos.length===0){
+            //setfinishPedidoAvailable(false);
+            return <p style={{textAlign:"center",marginTop:"12px",marginBottom:"12px"}}>Tu carrito está vacío.</p>;
+        } else {
+            //setfinishPedidoAvailable(true);
+        }
+        ;
         return output;
     }
 
@@ -49,7 +64,7 @@ function Carrito_pagina(){
                         <Card className="mb-4">
                             <CardHeader className="py-3"><h5 className="mb-0">Mi carrito</h5></CardHeader>
                             <Card.Body>
-                                {renderizarProductos()} 
+                                {renderizarProductos(productos)} 
                             </Card.Body>
                         </Card>
 
@@ -102,7 +117,7 @@ function Carrito_pagina(){
                                     </ListGroupItem>
                                 </ListGroup>
 
-                                <Link to='/finalizar-compra'><Button className='buttons' block size="lg">Realizar pedido</Button></Link>
+                                <Link to={finishPedidoAvailable ? '/finalizar-compra' : "" } disabled={!finishPedidoAvailable}><Button className='buttons' block size="lg" disabled={!finishPedidoAvailable}>Realizar pedido</Button></Link>
                             </Card.Body>
                         </Card>
                     </Col>

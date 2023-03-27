@@ -14,6 +14,7 @@ import CarritoContext from './contexts/Carrito';
 import ListadoPedidos from './components/pages/ListadoPedidos/ListadoPedidos';
 import DetallesPedido from './components/pages/ListadoPedidos/DetallesPedido';
 import FormularioCompra from './components/pages/carrito/FormularioCompra';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <Toaster/>
       
       <CarritoContext.Provider value={[carrito, setCarrito]}>      
         <LogInContext.Provider value={[login, loginData, updateLogin]}>

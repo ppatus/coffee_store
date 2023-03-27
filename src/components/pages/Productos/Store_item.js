@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import {Card, Button, Container, Col, Row} from 'react-bootstrap';
 import { BsTrash } from "react-icons/bs";
 import CarritoContext from '../../../contexts/Carrito';
+import toast from 'react-hot-toast';
 
 function Store_item(props){
 
@@ -40,6 +41,11 @@ function Store_item(props){
     const añadirProducto = () => {
         setQuantity(1);
         carrito.push({"name":nombre,"img":imagen,"price":precio,"qty":1});
+        toast(`${nombre} añadido al carrito.`,{
+            position: "bottom-left",
+            icon: "➕",
+            style: {maxWidth: "600px", boxShadow: "0px 0px 6px 2px rgba(0,0,0,0.4)"}
+        });
     }
 
     const eliminarProducto = () => {

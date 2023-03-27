@@ -10,3 +10,8 @@
     text-align: center;
     margin-top:5px;
 }
+
+div ::-webkit-scrollbar {
+    visibility: hidden;
+    width: 0px;
+}

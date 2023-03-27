@@ -7,6 +7,7 @@ import { useState } from 'react';
 import axios from "axios";
 import LogInContext from "../../../contexts/LogInContext";
 import { Link } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 const LogIn = (props) => {
 
@@ -24,15 +25,17 @@ const LogIn = (props) => {
         }
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC1V12BYDrMT04hpCPZXIrIk-BrwylEYiA', authData)
         .then((response)=>{
+            let name = "";
             axios.get("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/clients.json?orderBy=\"email\"&equalTo=\""+email+"\"&print=pretty")
                 .then((response2) => {
                 updateLogin(true, Object.entries(response2.data)[0]);
                 console.log(Object.entries(response2.data)[0][1]);
-                console.log(Object.entries(response2.data)[0][1].name);
+                name = Object.entries(response2.data)[0][1].name;
+                toast.success(`¡Bienvenido, ${name}!`);
             });
-            alert('Ha iniciado sesión correctamente.');
         }).catch((error) => {
-            alert('Error al iniciar sesión. Comprueba que has introducido correctamente el usuario y la contraseña.');
+            console.log(loginData);
+            toast.error("Error al iniciar sesión.");
         })
     }
 

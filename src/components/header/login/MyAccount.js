@@ -10,16 +10,20 @@ import { BiUserCircle } from "react-icons/bi";
 import { CiUser } from "react-icons/ci";
 import { BsBoxSeam } from "react-icons/bs";
 import './MyAccount.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 
 function MyAccount(){
 
     const [login, loginData, updateLogin] = useContext(LogInContext);
+    const navigate = useNavigate();
 
     const logoutHandler = () => {
         updateLogin(false,{});
+        toast.success("Se ha cerrado la sesión.");
+        navigate("/");
     }
 
 

@@ -15,6 +15,7 @@ function FormularioCompra(){
     const [showModalOK, setShowModalOK] = useState(false);
 
     const [productos, setProductos] = useContext(CarritoContext);
+    console.log(productos);
 
     const handleFinalizarCompra = () => {
         // TODO: SUBIR DATOS A BBDD
@@ -39,19 +40,22 @@ function FormularioCompra(){
 
     const submitHandler = (event) => {
         event.preventDefault();
+
+        const productos_copia = [...productos];
+        console.log("Productos dentro del handler:");
+        console.log(productos);
         
         const tiempoTranscurrido = Date.now();
         const hoy = new Date(tiempoTranscurrido);
     
             const clientData = {
-                compra: productos,
+                compra: productos_copia,
                 precio: calcularPrecioTotal(),
                 fecha: hoy.toLocaleDateString(),
                 numItems: calcularTotalProductos(),
                 user: loginData[0]
             };
     
-            console.log(clientData);
             
             
             axios.post("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/pedidos.json",clientData)
