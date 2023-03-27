@@ -30,7 +30,6 @@ const LogIn = (props) => {
                 console.log(Object.entries(response2.data)[0][1]);
                 console.log(Object.entries(response2.data)[0][1].name);
             });
-            alert('Ha iniciado sesión correctamente.');
         }).catch((error) => {
             alert('Error al iniciar sesión. Comprueba que has introducido correctamente el usuario y la contraseña.');
         })

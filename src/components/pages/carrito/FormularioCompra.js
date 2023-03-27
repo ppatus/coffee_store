@@ -8,8 +8,15 @@ import ModalFinalizarCompra from './ModalFinalizarCompra';
 
 function FormularioCompra(){
 
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password,setPassword] = useState('');
+    const [phone, setPhone] = useState('');
+    const [calle, setCalle] = useState('');
+    const [portal, setPortal] = useState('');
+    const [piso, setPiso] = useState('');
+    const [ciudad, setCiudad] = useState('');
+    const [CP, setCP] = useState('');
+
     const [login, loginData, updateLogin] = useContext(LogInContext);
     const [showModalOK, setShowModalOK] = useState(false);
 
@@ -49,20 +56,23 @@ function FormularioCompra(){
                                     <Row className=' mb-md-4'>
                                         <Col>
                                             <Form.Group className="mb-3" controlId="formBasicName">
-                                                <Form.Control type="name" placeholder="Nombre y apellidos" />
+                                                {loginData[1] &&<Form.Control type="name" placeholder="Nombre y apellidos" value={loginData[1].name} disabled/>}
+                                                {!loginData[1] &&<Form.Control type="name" placeholder="Nombre y apellidos" onChange={(event)=>setName(event.target.value)} value={name}/>}
                                             </Form.Group>
                                         </Col>
                                         <Col>
+                                            
                                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                <Form.Control type="email" placeholder="Correo electrónico" onChange={(event)=>setEmail(event.target.value)} value={email}/>
+                                                {loginData[1] &&<Form.Control type="email" placeholder="Correo electrónico" value={loginData[1].email} disabled/> }
+                                                {!loginData[1] &&<Form.Control type="email" placeholder="Correo electrónico" onChange={(event)=>setEmail(event.target.value)} value={email}/>}
                                             </Form.Group>
                                         </Col>
                                         
                                         <Col>
-                                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                <Form.Control type="phone" placeholder="Número de teléfono" />
+                                            <Form.Group className="mb-3" controlId="formBasicPhone">
+                                                {loginData[1] &&<Form.Control type="phone" placeholder="Número de teléfono" value={loginData[1].phone} disabled/>}
+                                                {!loginData[1] &&<Form.Control type="phone" placeholder="Número de teléfono" onChange={(event)=>setPhone(event.target.value)} value={phone}/>}
                                                 <p className="text-muted textMutedCasilla">Solo te llamaremos si tenemos alguna duda sobre la entrega de tu pedido</p>
-
                                             </Form.Group>
                                         </Col>
                                     </Row>
@@ -70,35 +80,42 @@ function FormularioCompra(){
                                     <h5 className='d-flex justify-content-start align-items-start'>Dirección</h5>
                                     <Row className=' mb-md-4'>
                                         <Col>
-                                            <Form.Group className="mb-4" controlId="formBasicEmail">
-                                                <Form.Control placeholder="Calle" />
+                                            <Form.Group className="mb-4" controlId="formBasicCalle">
+                                                {loginData[1] &&<Form.Control placeholder="Calle" value={loginData[1].calle} disabled/>}
+                                                {!loginData[1] &&<Form.Control placeholder="Calle" onChange={(event)=>setCalle(event.target.value)} value={calle}/>}
                                                 <p className="text-muted textMutedCasilla">P. ej. Calle Mayor</p>
                                             </Form.Group>
                                         </Col>
                                         <Col>
-                                            <Form.Group className="mb-1" controlId="formBasicEmail">
-                                                <Form.Control placeholder="Portal" />
+                                            <Form.Group className="mb-1" controlId="formBasicPortal">
+                                                {loginData[1] && <Form.Control placeholder="Portal" value={loginData[1].portal} disabled/>}
+                                                {!loginData[1] && <Form.Control placeholder="Portal" onChange={(event)=>setPortal(event.target.value)} value={portal} />}
                                                 <p className="text-muted textMutedCasilla">P. ej. 5</p>
                                             </Form.Group>
-                                        </Col>
-                                        
+                                        </Col>   
                                     </Row>
                                     <Row >
                                         <Col>
-                                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                <Form.Control placeholder="Piso y puerta" />
+                                            <Form.Group className="mb-3" controlId="formBasicPiso">
+                                                {loginData[1] &&<Form.Control placeholder="Piso y puerta" value={loginData[1].piso} disabled/>}
+                                                {!loginData[1] &&<Form.Control placeholder="Piso y puerta" onChange={(event)=>setPiso(event.target.value)} value={loginData[1].piso}/>}
+
                                                 <p className="text-muted textMutedCasilla">P. ej. 1A</p>
                                             </Form.Group>
                                         </Col>
                                         <Col>
-                                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                <Form.Control type="ciudad" placeholder="Ciudad" />
+                                            <Form.Group className="mb-3" controlId="formBasicCiudad">
+                                                {loginData[1] &&<Form.Control type="ciudad" placeholder="Ciudad" value={loginData[1].ciudad} disabled/>}
+                                                {!loginData[1] &&<Form.Control type="ciudad" placeholder="Ciudad"onChange={(event)=>setCiudad(event.target.value)} value={ciudad}/>}
+
                                                 <p className="text-muted  textMutedCasilla">P. ej. Pamplona</p>
                                             </Form.Group>
                                         </Col>
                                         <Col>
-                                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                <Form.Control type="cp" placeholder="Código postal" />
+                                            <Form.Group className="mb-3" controlId="formBasicCP">
+                                                {loginData[1] &&<Form.Control type="cp" placeholder="Código postal" value={loginData[1].CP} disabled/>}
+                                                {!loginData[1] &&<Form.Control type="cp" placeholder="Código postal" onChange={(event)=>setCP(event.target.value)} value={CP} />}
+
                                                 <p className="text-muted textMutedCasilla">P. ej. 31001</p>
                                             </Form.Group>
                                         </Col>
