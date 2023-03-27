@@ -11,6 +11,7 @@ import CarritoContext from '../../../contexts/Carrito';
 function Carrito_pagina(){
     const [productos, setProductos] = useContext(CarritoContext);
 
+
     const renderizarProductos = () => {
         let output = [];
         productos.forEach(element => {

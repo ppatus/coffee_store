@@ -1,40 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import './ListadoPedidos.css';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import CardHeader from 'react-bootstrap/esm/CardHeader';
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import {ImCancelCircle } from "react-icons/im";
 import Modal from 'react-bootstrap/Modal';
+import axios from "axios";
 
 
+function ItemPedido(props){
+
+    let idPedido = props.idPedido;
+    let fecha = props.fecha;
+    let precioTotal = props.precioTotal;
+    let cantidadTotal = props.cantidadTotal;
+    let compra = props.compra;
+    let pedidos = props.pedidos;
+    let getPedidos = props.getPedidos;
+
+    const navigate = useNavigate();
+
+    const handleDetalles = () => {
+        navigate("/detalles-pedido", {state: {detalles:compra, id:idPedido, date: fecha, total: precioTotal, qty:cantidadTotal}});
+    }
 
 
-function ItemPedido(){
 
     const [showModalOK, setShowModalOK] = useState(false);
+    const handleShowOK = () => setShowModalOK(true);
     
     const handleSi = () => {
+        axios.delete("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/pedidos/"+idPedido+".json")
+        
+        getPedidos(pedidos.filter(element => element[0]!==idPedido));
         setShowModalOK(false);
     };
 
     const handleNo = () => {
         setShowModalOK(false);
     };
-    
-    const handleShowOK = () => setShowModalOK(true);
+
 
     return(
         <Container >
             <Card fluid className="mb-4 text">
-                <Card.Title className="tituloPedidos">Tu pedido: meternumeropedido</Card.Title>
+                <Card.Title className="tituloPedidos">Tu pedido: {idPedido}</Card.Title>
                 <Card.Body classname='float-right'>
                     <Card.Text>
-                        <p>Fecha</p>
-                        <p>Precio total</p>
-                        <p>Número artículos</p>
-                        <span className="float-end mb-2 mt-2"><Link to="/detalles-pedido"><Button href="/detalles-pedido" className="btn btn-primary detailsButton">Ver detalles del pedido</Button></Link></span>
+                        <p>Fecha: {fecha}</p>
+                        <p>Precio total: {precioTotal}</p>
+                        <p>Número artículos: {cantidadTotal}</p>
+                        <span className="float-end mb-2 mt-2"><Button onClick={handleDetalles} className="btn btn-primary detailsButton">Ver detalles del pedido</Button></span>
                         <span className="float-end mb-2 mt-2" ><Link ><Button onClick={handleShowOK} variant="secondary" className="btn btn-primary"><ImCancelCircle></ImCancelCircle>  Cancelar pedido</Button></Link></span>
                     </Card.Text>
 

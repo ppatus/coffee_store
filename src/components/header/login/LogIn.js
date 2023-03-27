@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 const LogIn = (props) => {
 
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [login, loginData, updateLogin] = useContext(LogInContext);
@@ -27,8 +26,6 @@ const LogIn = (props) => {
             axios.get("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/clients.json?orderBy=\"email\"&equalTo=\""+email+"\"&print=pretty")
                 .then((response2) => {
                 updateLogin(true, Object.entries(response2.data)[0]);
-                console.log(Object.entries(response2.data)[0][1]);
-                console.log(Object.entries(response2.data)[0][1].name);
             });
         }).catch((error) => {
             alert('Error al iniciar sesión. Comprueba que has introducido correctamente el usuario y la contraseña.');

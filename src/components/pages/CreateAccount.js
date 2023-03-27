@@ -51,12 +51,8 @@ function CreateAccount(){
             return;
         }
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC1V12BYDrMT04hpCPZXIrIk-BrwylEYiA', authData)
-        .then((response)=>{
-            // TODO: CAMBIAR EMAIL POR EL NOMBRE DEL USUARIO 
-            console.log(response.data);
-            
+        .then((response)=>{            
             updateLogin(true, response.data);
-
             //Y ahora, mandamos a la base de datos los datos del usuario
             const clienData = {
                 email: email,

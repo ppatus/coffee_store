@@ -17,7 +17,7 @@ function FormularioCompra(){
     const [piso, setPiso] = useState('');
     const [ciudad, setCiudad] = useState('');
     const [CP, setCP] = useState('');
-
+    
     const [login, loginData, updateLogin] = useContext(LogInContext);
     const [showModalOK, setShowModalOK] = useState(false);
 
@@ -26,7 +26,6 @@ function FormularioCompra(){
     const handleFinalizarCompra = () => {
         // TODO: SUBIR DATOS A BBDD
         setShowModalOK(true);
-        setProductos([]);
     }
     const calcularPrecioTotal = () => {
         let price = 0;
@@ -49,17 +48,15 @@ function FormularioCompra(){
         
         const tiempoTranscurrido = Date.now();
         const hoy = new Date(tiempoTranscurrido);
+        const productos_copia =[...productos];
     
             const clientData = {
-                compra: productos,
+                compra: productos_copia,
                 precio: calcularPrecioTotal(),
                 fecha: hoy.toLocaleDateString(),
                 numItems: calcularTotalProductos(),
                 user: loginData[0]
-            };
-    
-            console.log(clientData);
-            
+            };            
             
             axios.post("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/pedidos.json",clientData)
             .then((response) => {
@@ -123,7 +120,7 @@ function FormularioCompra(){
                                         <Col>
                                             <Form.Group className="mb-3" controlId="formBasicPiso">
                                                 {loginData[1] &&<Form.Control placeholder="Piso y puerta" value={loginData[1].piso} disabled/>}
-                                                {!loginData[1] &&<Form.Control placeholder="Piso y puerta" onChange={(event)=>setPiso(event.target.value)} value={loginData[1].piso}/>}
+                                                {!loginData[1] &&<Form.Control placeholder="Piso y puerta" onChange={(event)=>setPiso(event.target.value)} value={piso}/>}
 
                                                 <p className="text-muted textMutedCasilla">P. ej. 1A</p>
                                             </Form.Group>
