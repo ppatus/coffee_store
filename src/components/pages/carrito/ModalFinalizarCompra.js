@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import CarritoContext from '../../../contexts/Carrito';
+
 
 function ModalFinalizarCompra(props){
+    const [productos, setProductos] = useContext(CarritoContext);
+    const navigate = useNavigate();
+
+    const setSeguirComprando = () => {
+        navigate('/productos/cafe-en-grano');
+        setProductos([]);
+    }
+
+    const setFinCompra = () => {
+        navigate('/');
+        setProductos([]);
+    }
+
     return(
         <Modal show={props.variable} centered>
             <Modal.Header closeButton>
@@ -11,12 +26,12 @@ function ModalFinalizarCompra(props){
             </Modal.Header>
             <Modal.Body>¡Gracias por comprar en Telecoffee! Trabajamos para que los apasionados del café disfruten al máximo de cada sorbo :)</Modal.Body>
             <Modal.Footer>
-            <Link to='/'><Button variant="secondary">
+            <Button variant="secondary" onClick={setSeguirComprando}>
                 Suficiente por hoy
-            </Button></Link>
-            <Link to='/productos/cafe-en-grano'><Button variant="success">
+            </Button>
+            <Button variant="success" onClick={setSeguirComprando}>
                 Seguir comprando
-            </Button></Link>
+            </Button>
             </Modal.Footer>
         </Modal>    
     );

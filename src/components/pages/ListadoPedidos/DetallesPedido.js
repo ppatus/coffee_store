@@ -1,23 +1,24 @@
 import React from 'react';
-import { CreditCard } from 'react-bootstrap-icons';
 import ItemDetallado from './ItemDetallado';
-import { Button, Container, Row, Col } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import { Container, Row, Col } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 
-function DetallesPedido(){
+function DetallesPedido(props){
+    const location = useLocation();
+    let idPedido = props.idPedido;
+
     return(
         <div>
             <Container fluid className="productsTitle">
-                Detalles del pedido #numeropedido
+                Detalles del pedido {location.state.id}
             </Container>
 
             <Container>
-                <p>Fecha de la compra: #fecha</p>
+                <p>Fecha de la compra: {location.state.date}</p>
             </Container>
             
 
-            <ItemDetallado></ItemDetallado>
-            <ItemDetallado></ItemDetallado>
+            <ItemDetallado detalles={location.state.detalles}></ItemDetallado>
 
             <Container className='mb-4'>
             <Row>
@@ -26,14 +27,14 @@ function DetallesPedido(){
                 <Col>
                 </Col>
                 <Col>
-                    <p>X ARTÍCULOS</p>
+                    <p>{location.state.qty} ARTÍCULOS</p>
                     <p>GASTOS DE ENVÍO</p>
                     <p style={{ fontWeight: 'bold' }}>TOTAL</p>
                 </Col>
                 <Col>
-                    <p>#preciototal</p>
+                    <p>{location.state.total}</p>
                     <p>0,00 €</p>
-                    <p style={{ fontWeight: 'bold' }}>#preciototal</p>
+                    <p style={{ fontWeight: 'bold' }}>{location.state.total}</p>
                 </Col>
             </Row>  
             </Container>

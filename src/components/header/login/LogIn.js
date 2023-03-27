@@ -11,7 +11,6 @@ import toast from 'react-hot-toast';
 
 const LogIn = (props) => {
 
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [login, loginData, updateLogin] = useContext(LogInContext);
@@ -34,7 +33,6 @@ const LogIn = (props) => {
                 toast.success(`¡Bienvenido, ${name}!`);
             });
         }).catch((error) => {
-            console.log(loginData);
             toast.error("Error al iniciar sesión.");
         })
     }
