@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useContext, useEffect } from 'react';
 import { Button, Col, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
@@ -6,8 +6,40 @@ import { Container } from 'react-bootstrap';
 import Item_carrito from './item.js';
 import './CarritoPagina.css';
 import { Link } from "react-router-dom";
+import CarritoContext from '../../../contexts/Carrito';
 
 function Carrito_pagina(){
+    const [productos, setProductos] = useContext(CarritoContext);
+
+    const renderizarProductos = () => {
+        let output = [];
+        productos.forEach(element => {
+            output.push(
+            <>
+                <Item_carrito producto={element}></Item_carrito>
+                <hr className="my-4" />
+            </> 
+            )
+        });
+        return output;
+    }
+
+    const calcularPrecioTotal = () => {
+        let price = 0;
+        productos.forEach(producto => {
+            price+=producto.price*producto.qty;
+        });
+        return price.toFixed(2).replace(".",",")+"€";
+    }
+
+    const calcularTotalProductos = () => {
+        let total = 0;
+        productos.forEach(producto => {
+            total+=producto.qty;
+        });
+        return total;
+    }
+
     return(
         <div className="h-100 gradient-custom">
             <Container className="py-5 h-100">
@@ -17,10 +49,7 @@ function Carrito_pagina(){
                         <Card className="mb-4">
                             <CardHeader className="py-3"><h5 className="mb-0">Mi carrito</h5></CardHeader>
                             <Card.Body>
-                                {/* TODO: meter un bucle que meta una cantidad de items igual al número de productos que se compran */}
-                                <Item_carrito></Item_carrito>
-                                <hr className="my-4" />
-                                <Item_carrito></Item_carrito>
+                                {renderizarProductos()} 
                             </Card.Body>
                         </Card>
 
@@ -53,7 +82,7 @@ function Carrito_pagina(){
                                 <ListGroup flush>
                                     <ListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                         Productos
-                                        <span>$53.98</span>
+                                        <span>{calcularPrecioTotal()}</span>
                                     </ListGroupItem>
                                     <ListGroupItem className="d-flex justify-content-between align-items-center px-0 border-0 gastosEnvio">
                                         Gastos de envío
@@ -62,13 +91,13 @@ function Carrito_pagina(){
                                     <ListGroupItem
                                         className="d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                         <div>
-                                        <strong>Total amount</strong>
+                                        <strong>Precio total</strong>
                                         <strong>
                                             <p className="mb-0">(IVA incluído)</p>
                                         </strong>
                                         </div>
                                         <span>
-                                        <strong>$53.98</strong>
+                                        <strong>{calcularPrecioTotal()}</strong>
                                         </span>
                                     </ListGroupItem>
                                 </ListGroup>

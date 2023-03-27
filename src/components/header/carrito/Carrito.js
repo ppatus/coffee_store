@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, OverlayTrigger, Popover, Col } from "react-bootstrap";
 import Nav from 'react-bootstrap/Nav';
 import { BsCart2 } from "react-icons/bs";
@@ -12,7 +12,8 @@ import PrecioCarrito from "./PrecioCarrito";
 function Carrito(){
     //Variable de estado (contexto) que guarda los productos almacenados en el carrito del cliente
     const [productos, setProductos] = useContext(CarritoContext);
-    
+
+
     return(
         <OverlayTrigger
           trigger="click"
