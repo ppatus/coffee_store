@@ -25,8 +25,10 @@ const LogIn = (props) => {
         axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC1V12BYDrMT04hpCPZXIrIk-BrwylEYiA', authData)
         .then((response)=>{
             let name = "";
+            console.log(response);
             axios.get("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/clients.json?orderBy=\"email\"&equalTo=\""+email+"\"&print=pretty")
                 .then((response2) => {
+                    console.log(response2);
                 updateLogin(true, Object.entries(response2.data)[0]);
                 console.log(Object.entries(response2.data)[0][1]);
                 name = Object.entries(response2.data)[0][1].name;

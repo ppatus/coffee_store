@@ -29,3 +29,14 @@ p{
     --bs-btn-active-bg: #705741 ;
     --bs-btn-active-border-color: #705741;
 }
+
+.listadoButton{
+    margin-right: 2rem;
+    margin-left: 1rem;
+    --bs-btn-bg:#CDA075;
+    --bs-btn-border-color: #CDA075;
+    --bs-btn-hover-bg: #927357;
+    --bs-btn-hover-border-color: #927357; 
+    --bs-btn-active-bg: #705741 ;
+    --bs-btn-active-border-color: #705741;
+}

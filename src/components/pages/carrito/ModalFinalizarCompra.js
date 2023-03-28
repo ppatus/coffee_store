@@ -26,7 +26,7 @@ function ModalFinalizarCompra(props){
             </Modal.Header>
             <Modal.Body>¡Gracias por comprar en Telecoffee! Trabajamos para que los apasionados del café disfruten al máximo de cada sorbo :)</Modal.Body>
             <Modal.Footer>
-            <Button variant="secondary" onClick={setSeguirComprando}>
+            <Button variant="secondary" onClick={setFinCompra}>
                 Suficiente por hoy
             </Button>
             <Button variant="success" onClick={setSeguirComprando}>

@@ -5,6 +5,7 @@ import LogInContext from '../../../contexts/LogInContext';
 import './CarritoPagina.css';
 import ModalFinalizarCompra from './ModalFinalizarCompra';
 import CarritoContext from '../../../contexts/Carrito';
+import toast from 'react-hot-toast';
 
 
 function FormularioCompra(){
@@ -26,7 +27,12 @@ function FormularioCompra(){
 
     const handleFinalizarCompra = () => {
         // TODO: SUBIR DATOS A BBDD
-        setShowModalOK(true);
+        if(login || (name!="" && email!="" && phone!="" && calle!="" && portal!="" && piso!="" && ciudad!="" && CP!="")) {
+            setShowModalOK(true);
+        } else {
+            toast.error("Rellena todos los campos.");
+        }
+        
     }
     const calcularPrecioTotal = () => {
         let price = 0;
@@ -152,7 +158,7 @@ function FormularioCompra(){
                                 </Col>
                             </Row>
                             <br></br>
-                            <Button type="submit" className="btn btn-primary logInButton btn-lg" onClick={handleFinalizarCompra}>
+                            <Button type="submit" className="btn btn-primary logInButton btn-lg">
                                 Finalizar compra
                             </Button>
                         </Form>

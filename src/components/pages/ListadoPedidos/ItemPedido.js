@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import {ImCancelCircle } from "react-icons/im";
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
+import toast from 'react-hot-toast';
+
 
 
 function ItemPedido(props){
@@ -33,6 +35,7 @@ function ItemPedido(props){
         axios.delete("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/pedidos/"+idPedido+".json")
         
         getPedidos(pedidos.filter(element => element[0]!==idPedido));
+        toast.success(`Se ha cancelado el pedido.`);
         setShowModalOK(false);
     };
 

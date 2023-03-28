@@ -50,25 +50,36 @@ function CreateAccount(){
             handleShowFail();
             return;
         }
-        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC1V12BYDrMT04hpCPZXIrIk-BrwylEYiA', authData)
-        .then((response)=>{            
-            updateLogin(true, response.data);
-            //Y ahora, mandamos a la base de datos los datos del usuario
-            const clienData = {
-                email: email,
-                name: nombre,
-                phone: phone,
-                calle: calle,
-                portal: portal,
-                piso: piso,
-                ciudad: ciudad,
-                CP: CP
-            };
 
-            axios.post("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/clients.json",clienData)
-            .then((response) => {
-                handleShowOK();
-            });
+        axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC1V12BYDrMT04hpCPZXIrIk-BrwylEYiA', authData)
+        .then((response)=>{           
+            console.log(response);
+            axios.get("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/clients.json?orderBy=\"email\"&equalTo=\""+email+"\"&print=pretty")
+                .then((response2) => {
+                    //Y ahora, mandamos a la base de datos los datos del usuario
+                    const clienData = {
+                        email: email,
+                        name: nombre,
+                        phone: phone,
+                        calle: calle,
+                        portal: portal,
+                        piso: piso,
+                        ciudad: ciudad,
+                        CP: CP
+                    };
+
+                    axios.post("https://telecoffee-30869-default-rtdb.europe-west1.firebasedatabase.app/clients.json",clienData)
+                    .then((response3) => {
+                        console.log(response3.data.name);
+                        let newLoginData = [response3.data.name, clienData];
+                        updateLogin(true, newLoginData);
+                        handleShowOK();
+                    });
+                    
+                
+                }
+            )
+            
             
             //toast('¡Bienvenido, Pablo! Esperemos que...');
         }).catch((error) => {
